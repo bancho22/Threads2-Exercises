@@ -1,9 +1,7 @@
 package fibonacciobserver;
 
 import java.awt.Cursor;
-import java.net.URL;
 import javax.swing.RootPaneContainer;
-import javax.swing.SwingUtilities;
 
 public class FibonacciFrame extends javax.swing.JFrame implements FibonacciObserver {
     
@@ -111,11 +109,10 @@ public class FibonacciFrame extends javax.swing.JFrame implements FibonacciObser
 
     
   @Override
-  public void dataReady(long tal) {
+  public synchronized void dataReady(long tal) {
     System.out.println("XXX: " + tal);
     stopWaitCursor();
     jTextField5.setText("result: " + tal);
-//    jTextField5.setText(tal + "");  //Make tHis Thread Safe
   }
 
   /**
